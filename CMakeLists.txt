@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.1)
 cmake_policy(SET CMP0015 NEW)
 project(sts CXX)
- 
+
 #
 # cmake modules
 #
@@ -35,7 +35,7 @@ set(CMAKE_CXX_FLAGS "-g -Wall -Wextra -pedantic ${CXX11_COMPILER_FLAGS} ${CMAKE_
 # In-tree dependencies
 #
 
-OPTION(USE_BEAGLE "Use BEAGLE library." ON)
+OPTION(USE_BEAGLE "Use BEAGLE library." OFF)
 
 # boostable
 include_directories(SYSTEM lib/boostable)
