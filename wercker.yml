@@ -1,0 +1,25 @@
+box: 4ment/sts-build-env
+
+dev:
+  steps:
+    - internal/watch:
+        code: |
+          git clone https://github.com/OnlinePhylo/sts.git
+          cd sts
+          git submodule update --init --recursive
+          mkdir _build
+          cd _build
+          cmake -DUSE_BEAGLE=OFF -DCMAKE_BUILD_TYPE=Release ..
+          make
+          make test
+        reload: true
+        
+build:
+    step:
+        - script:
+            name: initialize git submodules
+            code: |
+                git submodule update --init --recursive
+        - script:
+          name: build sts
+          code: cmake -DUSE_BEAGLE=OFF -DCMAKE_BUILD_TYPE=Release .. && make 
