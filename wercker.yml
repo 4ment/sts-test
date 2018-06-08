@@ -22,4 +22,9 @@ build:
                 git submodule update --init --recursive
         - script:
           name: build sts
-          code: cmake -DUSE_BEAGLE=OFF -DCMAKE_BUILD_TYPE=Release .. && make 
+          code: |
+            mkdir _build
+            cd _build
+            cmake -DUSE_BEAGLE=OFF -DCMAKE_BUILD_TYPE=Release ..
+            make
+            make test
