@@ -7,10 +7,6 @@ dev:
           git clone https://github.com/OnlinePhylo/sts.git
           cd sts
           git submodule update --init --recursive
-          mkdir _build
-          cd _build
-          cmake -DUSE_BEAGLE=OFF -DCMAKE_BUILD_TYPE=Release ..
-          make
           make test
         reload: true
         
@@ -23,8 +19,4 @@ build:
         - script:
           name: build sts
           code: |
-            mkdir _build
-            cd _build
-            cmake -DUSE_BEAGLE=OFF -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON ..
-            make
             make test
