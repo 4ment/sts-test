@@ -25,6 +25,6 @@ build:
           code: |
             mkdir _build
             cd _build
-            cmake -DUSE_BEAGLE=OFF -DCMAKE_BUILD_TYPE=Release ..
+            cmake -DUSE_BEAGLE=OFF -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON ..
             make
             make test
